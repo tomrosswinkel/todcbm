@@ -152,7 +152,7 @@ function findLatestFile_(folder, baseName) {
 function processRackDataInMemory_(rawData) {
   const header = rawData.shift();
   const processedData = rawData
-    .filter(row => row[1] !== "Virtual")
+    .filter(row => row[1] !== "Virtual" && row[4] && row[4].toString().trim() !== "")
     .map(row => [row[4], row[0], row[1], row[2], row[3], ...row.slice(5)]);
 
   processedData.sort((a, b) => a[1].localeCompare(b[1]) || a[2].localeCompare(b[2]) || a[3].localeCompare(b[3]) || a[4].localeCompare(b[4]));

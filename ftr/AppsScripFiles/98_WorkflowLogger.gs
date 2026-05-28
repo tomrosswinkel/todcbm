@@ -128,7 +128,7 @@ function clearWorkflowState() {
   const props = PropertiesService.getScriptProperties();
   const keysToWipe = [
     'STEP_INDEX', 'WF_CONFIG', 'IMPORT_STAGE', 'RELINK_CHART_INDEX',
-    'PDU_DATA_ROW_INDEX', 'PDU_FORMULA_ROW_INDEX', 'RACK_DATA_ROW_INDEX',
+    'PDU_IMPORT_ROW_INDEX', 'PDU_DATA_ROW_INDEX', 'PDU_FORMULA_ROW_INDEX', 'RACK_DATA_ROW_INDEX',
     'RACK_FORMULA_ROW_INDEX', 'UNIQUE_RACK_COUNT', 'MEM_RACK', 'MEM_PDU'
   ];
   keysToWipe.forEach(key => props.deleteProperty(key));
