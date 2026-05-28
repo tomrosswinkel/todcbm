@@ -24,28 +24,6 @@ function updateWeekAndCheck_(ss) {
 }
 
 /**
- * PHASE 2: Archives the data and updates visuals.
- * This runs AFTER the calculation pause.
- */
-function archiveWeeklyDataAndVisuals_(ss, config) {
-  workflowLog("Starting archive and visual update phase.", "WEEKLY_ARCHIVE", null, ss);
-
-  // 1. Move the data in the tables (Value-only move)
-  rollWeeksAndPullCurrent(ss);
-
-  // 2. Update Charts in the sheet
-  updateCharts(ss);
-
-  // 3. Refresh Slides
-  updateSlides(config.slidesId);
-
-  // 4. Send the Chat notification
-  sendCardMessageToChat(config.sheetId, config.slidesId, config.context);
-
-  workflowLog("Archive and Visuals complete.", "WEEKLY_ARCHIVE", null, ss);
-}
-
-/**
  * High-performance table-rolling logic.
  * Shifts historical data up and captures the "Current" state into the archive.
  */
