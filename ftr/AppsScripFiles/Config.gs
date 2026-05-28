@@ -6,31 +6,30 @@
 
 // --- NOTIFICATION SETTINGS ---
 /** @type {boolean} Set to false to silence all Google Chat notifications */
-const ENABLE_CHAT_NOTIFICATIONS = true;
+const ENABLE_CHAT_NOTIFICATIONS = false; //Sandbox
 
 // --- FOLDER IDs ---
-const DAVE_FOLDER_ID = '1KQyIZQoQRDGXrUHPleIFCcG5u_ykLIIn';
+const DAVE_FOLDER_ID = '1KQyIZQoQRDGXrUHPleIFCcG5u_ykLIIn'; //Remains unchanged in Sandbox
 // const DAVE_FOLDER_ID_OVERRIDE = '1GnOgMWzTa1qHP_JK5YJ41TF3fNs0tpws'; // Manual override placeholder
 
 // Centralized Report & Backup Location
-const CENTRAL_DESTINATION_ID = '1vgb-4SfA9nUavyz5yVJGD3cwsHdyUmnF';
+const CENTRAL_DESTINATION_ID = '1JuoKItuYGMXu325zJUEzSBxz00Ub3rQs'; //Sandbox
 
 const FTRIMPORT_FOLDER_ID_PROD = CENTRAL_DESTINATION_ID;
 const DAVEREPORTS_FOLDER_ID_PROD = CENTRAL_DESTINATION_ID;
-const SOURCE_FOLDER_ID_PROD = '16AGBIdap2f7CmvxXqivPJSRxeA5gRa8q';
+const SOURCE_FOLDER_ID_PROD = '1tiBI_2h9nHjZwxAUp1vweuLudCgSZ1hM'; //Sandbox
 const TARGET_FOLDER_ID_PROD = CENTRAL_DESTINATION_ID;
 
 const FTRIMPORT_FOLDER_ID_TEST = CENTRAL_DESTINATION_ID;
 const DAVEREPORTS_FOLDER_ID_TEST = CENTRAL_DESTINATION_ID;
-const SOURCE_FOLDER_ID_TEST = '1IHWPneXHxSaEyUEQj06fytGG3kbygAZ6';
+const SOURCE_FOLDER_ID_TEST = '10KxCCs-yVfseMVQC-gwTatYU_kZPYWOT'; //Sandbox
 const TARGET_FOLDER_ID_TEST = CENTRAL_DESTINATION_ID;
 const BACKUP_FOLDER_ID_TEST = CENTRAL_DESTINATION_ID;
 
 // --- FILE IDs and NAMES ---
-const FTR_SHEET_ID_PROD = '1wa5dizxHxWKUE8SNg2f4GrYM2IOqqy2HqlUkpgdr7RY';
-// FIX: Corrected typo in Slides ID (was _p, now 8p)
-const FTR_SLIDES_ID_PROD = '1FPc8p-0uQ-BxkAu8n95tYohdincKqL6ivO_sDpyC4dQ';
-const FTR_SHEET_NAME_PROD = 'Fix the Rack';
+const FTR_SHEET_ID_PROD = '16ofaDyDX8JWFvJhGdxNTHhUA8nlZ0R1SMTEYZli0vg4'; //Sandbox
+const FTR_SLIDES_ID_PROD = '1deqrvAECl42t4Cp5PYC3QHvewDfMG4aWG0Tq9Ubg1-g'; //Sandbox
+const FTR_SHEET_NAME_PROD = 'FTRMK4'; //Sandbox
 
 const FTR_SHEET_NAME_TEST = 'Copy of Fix the Rack';
 const FTR_SLIDES_NAME_TEST = 'Copy of Fix the Rack Slides';
