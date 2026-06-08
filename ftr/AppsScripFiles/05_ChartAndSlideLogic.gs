@@ -89,5 +89,18 @@ function sendCardMessageToChat(sheetId, slidesId, context) {
       }
     }]
   });
-  UrlFetchApp.fetch(GOOGLE_CHAT_WEBHOOK_LINK, { method: 'POST', contentType: 'application/json', payload: payload });
+  try {
+    UrlFetchApp.fetch(GOOGLE_CHAT_WEBHOOK_LINK, { method: 'POST', contentType: 'application/json', payload: payload });
+  } catch (e) {
+    Logger.log(`Failed to send Chat success notification: ${e.message}`);
+    try {
+      MailApp.sendEmail(
+        Session.getEffectiveUser().getEmail(),
+        '🟢 FTR Import Complete (Chat notification failed)',
+        `The FTR workflow completed successfully in ${context}, but the Google Chat notification failed.\n\nError: ${e.message}\n\nView Sheet: https://docs.google.com/spreadsheets/d/${sheetId}\nView Slides: https://docs.google.com/presentation/d/${slidesId}`
+      );
+    } catch (mailError) {
+      Logger.log(`Email fallback also failed: ${mailError.message}`);
+    }
+  }
 }
