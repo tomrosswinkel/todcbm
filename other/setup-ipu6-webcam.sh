@@ -98,6 +98,16 @@ else
     info "v4l2loopback already loaded."
 fi
 
+# 6b. Apply colour correction (hue/saturation tuned for this hardware)
+# libcamhal-common writes /etc/v4l2-relayd with a plain icamerasrc source;
+# we extend it to include a videobalance filter. hue=-0.08/saturation=0.88
+# counteracts the warm/red cast of the ov01a10 sensor on this Dell XPS.
+RELAYD_CONF=/etc/v4l2-relayd
+if grep -q '^VIDEOSRC=icamerasrc' "$RELAYD_CONF" && ! grep -q 'videobalance' "$RELAYD_CONF"; then
+    info "Applying colour correction to $RELAYD_CONF ..."
+    sed -i 's|^VIDEOSRC=icamerasrc buffer-count=7$|VIDEOSRC=icamerasrc buffer-count=7 ! videoconvert ! videobalance hue=-0.08 saturation=0.88 ! videoconvert|' "$RELAYD_CONF"
+fi
+
 # 7. Start and enable v4l2-relayd
 info "Enabling and starting v4l2-relayd..."
 systemctl daemon-reload
